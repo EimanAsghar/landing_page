@@ -3,17 +3,6 @@ This project aims to build a multi-section landing page. Often, we don’t know 
 
 
 ## Instructions
- The structure of this project:
-
- css
-- styles.css 
-
-index.html
-
-js
-- app.js
-
-README.md
 
 This project focus on:
 - Navigation

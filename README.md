@@ -6,14 +6,17 @@ This project aims to build a multi-section landing page. Often, we don’t know 
  The structure of this project:
 
  css
-- styles.css    
+- styles.css 
+
 index.html
+
 js
 - app.js
+
 README.md
 
 This project focus on:
-1-Navigation
-2-Section Active State
-3-Scroll to Anchor
+- Navigation
+- Section Active State
+- Scroll to Anchor
 

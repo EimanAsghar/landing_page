@@ -22,15 +22,23 @@
  * Define Global Variables
  * 
 */
-
+const navbarlist = document.querySelector('#navbar__list')
+const sections = document.querySelectorAll('section')
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+function buildnav() {
+    for (let i = 0; i < sections.length; i++) {
+        const newlist = document.createElement('li')
+        newlist.innerHTML = `<a href="#${sections[i].getAttribute('id')}" class="menu__link">${sections[i].getAttribute('data-nav')}</a>`
+        scrollevent()
 
-
+        navbarlist.appendChild(newlist)
+    }
+}
 
 /**
  * End Helper Functions
@@ -39,24 +47,51 @@
 */
 
 // build the nav
-
+buildnav()
 
 // Add class 'active' to section when near top of viewport
+function activesection() {
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top
 
+        // if the distance to the top is grater than or equal 0, set the class as active
+        if (top >= 0) {
+            section.classList.add('your-active-class');
+
+            // else, remove the active 
+        } else {
+            section.classList.remove('your-active-class');
+        }
+    }
+    )
+}
 
 // Scroll to anchor ID using scrollTO event
+function scrollevent() {
 
+    document.querySelectorAll('a[href^="#"]').forEach(e => {
+        e.addEventListener("click", function (event) {
+            event.preventDefault()
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            })
+        })
+    })
+}
 
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu 
 
 // Scroll to section on link click
 
-// Set sections as active
 
+// Set sections as active
+window.addEventListener('scroll', function () {
+    activesection()
+})
 

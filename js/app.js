@@ -85,11 +85,6 @@ function scrollevent() {
  *
 */
 
-// Build menu 
-
-// Scroll to section on link click
-
-
 // Set sections as active
 window.addEventListener('scroll', function () {
     activesection()

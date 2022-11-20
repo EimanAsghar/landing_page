@@ -34,6 +34,7 @@ function buildnav() {
     for (let i = 0; i < sections.length; i++) {
         const newlist = document.createElement('li')
         newlist.innerHTML = `<a href="#${sections[i].getAttribute('id')}" class="menu__link">${sections[i].getAttribute('data-nav')}</a>`
+
         scrollevent()
 
         navbarlist.appendChild(newlist)
@@ -54,8 +55,8 @@ function activesection() {
     sections.forEach(section => {
         const top = section.getBoundingClientRect().top
 
-        // if the distance to the top is grater than or equal 0, set the class as active
-        if (top >= 0) {
+        // if the distance to the top is between 0-100px, set the class as active
+        if (top >= 0 && top < 100) {
             section.classList.add('your-active-class');
 
             // else, remove the active 
@@ -72,8 +73,8 @@ function scrollevent() {
     document.querySelectorAll('a[href^="#"]').forEach(e => {
         e.addEventListener("click", function (event) {
             event.preventDefault()
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             })
         })
     })

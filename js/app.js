@@ -52,20 +52,24 @@ buildnav()
 
 // Add class 'active' to section when near top of viewport
 function activesection() {
-    sections.forEach(section => {
+    sections.forEach((section) => {
         const top = section.getBoundingClientRect().top
 
         // if the distance to the top is between 0-100px, set the class as active
         if (top >= 0 && top < 100) {
             section.classList.add('your-active-class');
 
+
             // else, remove the active 
         } else {
             section.classList.remove('your-active-class');
+
         }
     }
     )
 }
+
+
 
 // Scroll to anchor ID using scrollTO event
 function scrollevent() {
@@ -80,6 +84,9 @@ function scrollevent() {
     })
 }
 
+
+  
+
 /**
  * End Main Functions
  * Begin Events
@@ -90,4 +97,26 @@ function scrollevent() {
 window.addEventListener('scroll', function () {
     activesection()
 })
+
+
+// ref https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
+const navbarmenu = document.querySelectorAll('li')
+
+
+window.onscroll = () => {
+    var current = "";
+  
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (window.pageYOffset >= sectionTop - 60) {
+        current = section.getAttribute("id"); }
+    });
+  
+    navbarmenu.forEach((li) => {
+      li.classList.remove("active");
+      if (li.classList.contains(current)) {
+        li.classList.add("active");
+      }
+    });
+  };
 

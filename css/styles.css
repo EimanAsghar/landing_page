@@ -88,6 +88,13 @@ section {
     transition: ease 0.3s all;
 }
 
+.active {
+    background: red;
+    color: #fff;
+}
+
+
+
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -210,10 +217,6 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
- section.your-active-class {
-    background: #000;
-    opacity: 0.5;
-}
 
 .navbar__menu .menu__link .section.your-active-class {
     background: #333;
@@ -233,3 +236,4 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+

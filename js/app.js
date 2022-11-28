@@ -51,20 +51,27 @@ function buildnav() {
 buildnav()
 
 // Add class 'active' to section when near top of viewport
+
+const navbarmenu = document.querySelectorAll('li')
+
 function activesection() {
+    let i = 0
     sections.forEach((section) => {
         const top = section.getBoundingClientRect().top
 
         // if the distance to the top is between 0-100px, set the class as active
         if (top >= 0 && top < 100) {
             section.classList.add('your-active-class');
-
+            navbarmenu[i].style.cssText = 'background: green; color: #fff;'
 
             // else, remove the active 
         } else {
             section.classList.remove('your-active-class');
+            navbarmenu[i].style.cssText = 'background: white; color: #fff;'
 
         }
+
+        i++
     }
     )
 }
@@ -100,23 +107,4 @@ window.addEventListener('scroll', function () {
 
 
 // ref https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
-const navbarmenu = document.querySelectorAll('li')
-
-
-window.onscroll = () => {
-    var current = "";
-  
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      if (window.pageYOffset >= sectionTop - 60) {
-        current = section.getAttribute("id"); }
-    });
-  
-    navbarmenu.forEach((li) => {
-      li.classList.remove("active");
-      if (li.classList.contains(current)) {
-        li.classList.add("active");
-      }
-    });
-  };
 

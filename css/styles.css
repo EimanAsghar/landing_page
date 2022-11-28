@@ -88,11 +88,10 @@ section {
     transition: ease 0.3s all;
 }
 
-.active {
+.navbar__menu .menu__link .active {
     background: red;
     color: #fff;
 }
-
 
 
 /* Header Styles */

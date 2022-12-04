@@ -103,10 +103,10 @@ window.addEventListener('scroll', function () {
 
 
 const navbarmenu = document.querySelectorAll('li')
-
+let current = "";
 window.onscroll = () => {
 
-    const current = "";
+
     sections.forEach((section) => {
 
         const top = section.getBoundingClientRect().top

@@ -221,11 +221,10 @@ section.your-active-class .landing__container::after {
 .navbar__menu .menu__link .section.your-active-class {
     background: #333;
     color: #fff;
-    
 }
 
 .active {
-    background-color: #3b49df;
+    background-color: green;
     transition: 0.3s;
 }
 

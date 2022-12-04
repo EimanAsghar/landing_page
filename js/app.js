@@ -25,6 +25,7 @@
 const navbarlist = document.querySelector('#navbar__list')
 const sections = document.querySelectorAll('section')
 
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -34,6 +35,7 @@ function buildnav() {
     for (let i = 0; i < sections.length; i++) {
         const newlist = document.createElement('li')
         newlist.innerHTML = `<a href="#${sections[i].getAttribute('id')}" class="menu__link">${sections[i].getAttribute('data-nav')}</a>`
+        newlist.classList.add(sections[i].getAttribute('id'))
 
         scrollevent()
 
@@ -59,11 +61,9 @@ function activesection() {
         if (top >= 0 && top < 100) {
             section.classList.add('your-active-class');
 
-
             // else, remove the active 
         } else {
             section.classList.remove('your-active-class');
-
         }
     }
     )
@@ -85,7 +85,7 @@ function scrollevent() {
 }
 
 
-  
+
 
 /**
  * End Main Functions
@@ -100,27 +100,31 @@ window.addEventListener('scroll', function () {
 
 
 // ref https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
-const navbarmenu = document.querySelectorAll('.menu__link')
 
+
+const navbarmenu = document.querySelectorAll('li')
 
 window.onscroll = () => {
-    var current = "";
-  
+
+    const current = "";
     sections.forEach((section) => {
+
         const top = section.getBoundingClientRect().top
-      if (top >= 0 && top < 100) {
-        current = section.getAttribute("id"); }
+
+        if (top >= 0 && top < 100) {
+            current = section.getAttribute("id")
+        }
+
     });
-  
+
     navbarmenu.forEach((li) => {
 
-      li.classList.remove("active");
+        li.classList.remove("active");
 
-      if (li.classList.contains(current)) {
+        if (li.classList.contains(current)) {
+            li.classList.add("active");
+        }
 
-        li.classList.add("active");
-        
-      }
-    });
-  };
+    })
 
+}
